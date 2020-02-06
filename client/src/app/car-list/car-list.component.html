@@ -1,5 +1,25 @@
-<h2>Car list</h2>
+<mat-card>
+  <mat-card-title>Car list</mat-card-title>
+  <mat-card-content>
+    <table class="mat-elevation-z8">
+      <thead>
+        <tr>
+          <th scope="col"> No. </th>
+          <th scope="col"> Name </th>
+          <th scope="col"> Manufacturer </th>
+          <th scope="col"> Engine Volume </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let car of cars">
+          <td> {{car.id}} </td>
+          <td [routerLink]="['/car-edit', car.id]"> {{car.name}} </td>
+          <td> {{car.manufacturer}} </td>
+          <td> {{car.engineVolume}} </td>
+        </tr>
+      </tbody>
+    </table>
+  </mat-card-content>
 
-<div *ngFor="let car of cars">
-  {{car.name}}
-</div>
+  <button mat-fab color="primary" [routerLink]="['/car-add']">Add</button>
+</mat-card>

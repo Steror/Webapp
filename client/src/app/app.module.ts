@@ -8,16 +8,31 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { CarListComponent } from './car-list/car-list.component';
 
+import { MatButtonModule, MatCardModule, MatInputModule, MatListModule, MatToolbarModule } from '@angular/material';
+import { MatTableModule } from '@angular/material/table';
+import { CarEditComponent } from './car-edit/car-edit.component';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+
 @NgModule({
   declarations: [
     AppComponent,
-    CarListComponent
+    CarListComponent,
+    CarEditComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatButtonModule,
+    MatCardModule,
+    MatInputModule,
+    MatListModule,
+    MatToolbarModule,
+    MatTableModule,
+    FormsModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

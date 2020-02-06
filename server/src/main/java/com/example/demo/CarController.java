@@ -1,11 +1,10 @@
 package com.example.demo;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Optional;
 
 @RestController
 public class CarController {
@@ -19,5 +18,29 @@ public class CarController {
     @CrossOrigin(origins = "http://localhost:4200")
     public Collection<Car> Cars() {
         return new ArrayList<>(repository.findAll());
+    }
+
+    @GetMapping("/cars/{id}")
+    @CrossOrigin(origins = "http://localhost:4200")
+    public Optional<Car> Car(@PathVariable Long id) {
+        return repository.findById(id);
+    }
+
+    @PostMapping("/cars")
+    @CrossOrigin(origins = "http://localhost:4200")
+    public void AddCar(@RequestBody Car car) {
+        repository.save(car);
+    }
+
+    @PutMapping("/cars")
+    @CrossOrigin(origins = "http://localhost:4200")
+    public void UpdateCar(@RequestBody Car car) {
+        repository.save(car);
+    }
+
+    @DeleteMapping("/cars/{id}")
+    @CrossOrigin(origins = "http://localhost:4200")
+    public void DeleteCar(@PathVariable Long id) {
+        repository.deleteById(id);
     }
 }
